@@ -11,6 +11,15 @@ div {
     
 }
 
+.divider {
+  opacity: 0.3;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .grid {
   z-index: -1;
   position: fixed;
@@ -46,7 +55,7 @@ form {
   border: 3px solid #f1f1f1;
 }
 .container {
-  margin: 10%;
+  margin-inline: 15%;
   margin-top: 5%;
   position: center;
   padding-bottom: 4%;
@@ -56,6 +65,12 @@ form {
   background-color: #000000;
   box-shadow: 0px 0px 20px rgb(184, 0, 0);
 }
+
+.container-item {
+  margin-inline:8%;
+  margin-top: 5%;
+}
+
 
 .sardine-button {
     font-family: 'Open Sans', sans-serif;
@@ -113,36 +128,6 @@ form {
     }
 }
 
-@media (min-width: 1200px) {
-  .container-item {
-    margin-inline:12%;
-    margin-top: 5%;
-  }
-  
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-  .container-item {
-    margin-inline:8%;
-    margin-top: 5%;
-  }
-  
-}
-
-@media (max-width: 767px) { 
-  .container-item {
-    margin-inline:12%;
-    margin-top: 10%;
-  }
-}
-
-
-@media (max-width: 400px) {
-  .container-item {
-    margin-inline:12%;
-    margin-top: 12%;
-  }
-}
 
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
