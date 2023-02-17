@@ -47,7 +47,7 @@ form {
 }
 .container {
   margin: 10%;
-  margin-top: 3%;
+  margin-top: 5%;
   position: center;
   padding-bottom: 4%;
   padding-inline: 10%;
@@ -57,7 +57,7 @@ form {
   box-shadow: 0px 0px 20px rgb(184, 0, 0);
 }
 .container-item {
-  margin-inline:15%;
+  margin-inline:12%;
   margin-top: 5%;
 }
 
