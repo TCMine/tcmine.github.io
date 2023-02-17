@@ -123,7 +123,7 @@ form {
 
 @media (min-width: 768px) and (max-width: 979px) {
   .container-item {
-    margin-inline:12%;
+    margin-inline:8%;
     margin-top: 5%;
   }
   
@@ -137,12 +137,13 @@ form {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .container-item {
     margin-inline:12%;
-    margin-top: 10%;
+    margin-top: 12%;
   }
 }
+
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
     from {
