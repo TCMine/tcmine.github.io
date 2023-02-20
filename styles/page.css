@@ -11,6 +11,54 @@ div {
     
 }
 
+.rd-textarea {
+  background-color:#0c0c0c;
+  resize:vertical;
+  font: 17px 'Open Sans', sans-serif;
+  user-select: none;
+  width: 100%;
+  color: rgb(197, 197, 197);
+  padding: 2%;
+  padding-bottom: 0px;
+  margin: 2px;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+  border-radius: 7px;
+  border-style: solid;
+  border-color: rgb(71, 71, 71);
+  border-width: 2px;
+  box-shadow: 0px 0px 0px rgb(88, 88, 88);
+  transition: all 0s, padding 0.3s , box-shadow 0.2s;
+  transition-timing-function: initial;
+  outline: none !important;
+}
+.rd-textarea:hover {
+  box-shadow: 0px 0px 5px rgb(88, 88, 88);
+  transition-timing-function: ease-out
+}
+.rd-textarea:hover:after {
+  box-shadow: 0px 0px 5px rgb(88, 88, 88);
+  transition-timing-function: ease-out
+}
+.rd-textarea:focus {
+  border-width: 3px;
+  padding-bottom: 30px;
+  color: white;
+  transition-timing-function: cubic-bezier(0.18,0.89,0.32,1.27);
+}
+.rd-textarea:focus:after {
+  border-width: 3px;
+  padding-bottom: 30px;
+  color: white;
+  transition-timing-function: cubic-bezier(0.18,0.89,0.32,1.27);
+}
+
+
+.comment {
+  color:rgba(255, 255, 255, 0.411)
+}
+
+
 .divider {
   opacity: 0.3;
   display: block;
@@ -42,15 +90,16 @@ form {
   border: 3px solid #f1f1f1;
 }
 .container {
-  margin-inline: 15%;
+  margin-inline: 20%;
   margin-top: 5%;
-  position: center;
   padding-bottom: 4%;
-  padding-inline: 10%;
+  padding-inline: 4%;
   border-radius: 15px;
   border-color: #2c2c2c;
-  background-color: #000000;
+  background-color: #181818;
   box-shadow: 0px 0px 20px rgb(0, 0, 0);
+  transition: all 0s, transform 0.3s;
+  transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 
 .container-item {
@@ -73,15 +122,14 @@ form {
 
 .button {
     font-family: 'Open Sans', sans-serif;
-    font: 20px 'Open Sans', sans-serif;
-    background-color:#000000;
+    font: 17px 'Open Sans', sans-serif;
+    background-color:#0c0c0c;
     border-radius: 7px;
-    border-width: 1px;
+    border-width: 2px;
     border-style:solid;
-    border-color: rgb(163, 2, 2);
-    padding: 1%;
+    border-color: rgb(71, 71, 71);
+    padding: 2%;
     color: rgb(197, 197, 197);
-    box-shadow: 0px 0px 10px rgb(184, 0, 0);
     transition: all 0.2s;
     cursor: pointer;
 
@@ -90,8 +138,20 @@ form {
     user-select: none;
 }
 
-.button:hover {box-shadow: 0px 0px 20px rgb(184, 0, 0);}
+.button:hover {box-shadow: 0px 0px 20px rgb(88, 88, 88);}
 .button:hover:after {box-shadow: 0px 0px 20px rgb(184, 0, 0);}
+
+
+
+
+.error {
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: #c70000;
+  background-color: #41000093;
+  box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.226);
+  transition: all 0.6s;
+}
 
 .no-select {
     -moz-user-select: none;
@@ -105,6 +165,18 @@ form {
   opacity: 80%;
 }
 
+@keyframes hideInvalid { 
+  100% {
+    opacity: 0;
+    visibility:hidden;
+  }
+}
+@keyframes showInvalid {
+  100% {
+    opacity: 1;
+    visibility:visible;
+  }
+}
 
 @keyframes button {
     from {
@@ -151,4 +223,16 @@ form {
     -ms-animation: rotating 20s linear infinite;
     -o-animation: rotating 20s linear infinite;
     animation: rotating 20s linear infinite;
+  }
+
+  .grid {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-size: 40px 40px;
+
   }
