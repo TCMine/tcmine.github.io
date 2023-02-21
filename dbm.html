@@ -1,1 +1,90 @@
-coming soon, go away.
+<head>
+    <meta charset="UTF-8">
+    <title>DBM Rawdata Viewer</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <link rel="stylesheet" type="text/css" href="./styles/page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-image: radial-gradient(#3d3d3d 10%, transparent 10%); background-position: 0 0, 50px 50px; background-size: 20px 20px;">
+    <!--<div class="grid no-select" style="background-image: url(assets/bg/grid-dbm.png);"></div>-->
+    <div class="no-select" style="display:flex;"><p style="font-size:30px; margin-left: 3%;">Rawdata Viewer</p></div>
+    
+    <noscript class="no-select">
+        <form id="main-modal" class="container error" style="padding:1%">
+            <p style="padding-top: 0%; font-size:150%"><b>Uh oh!</b></p>
+            <p>This page isn't going to work without Javascript support. Learn to enable it <a style="color:rgb(174, 174, 231)" target="_blank" rel="external" href="https://www.enable-javascript.com/">here.</a></p>
+        </form>
+    </noscript>
+    <!--<body>
+        <div class="gradient-banner no-select" style="display:inline-flex; height:100px; width:100%;" class="no-select">
+            <img src="./assets/egg_gear.png" class="rotating" style="max-width:100%; height: 103%; ;">
+            <p style="text-align: center; transform:translateY(-250%);font-size: 300%; padding-left: 20px;">tcmine64</p>
+        </div>
+    </body>-->
+    
+    
+    <form id="main-modal" class="container" style="display:grid">
+        <p class="no-select" style="padding-top: 5%; font-size:110%">Paste your Rawdata here to continue.</p>
+        <textarea oninput="joe()" spellcheck="false" id="rawdata-input" class="rd-textarea" id="w3review" rows="2" placeholder="Must be valid JSON."></textarea>
+        <p class="comment no-select" style="margin-bottom: -8px;" ><i class="fa fa-info-circle" style="font-size:110%;padding-right:5px;color:rgba(255, 255, 255, 0.281)"></i>Note: This is <b>not</b> an editor. You cannot add, edit or delete any actions.</p>
+    </form>
+    
+    <!--
+        <hr width="50%" style="margin-top: 3%; margin-bottom: -2%; opacity: 0.2;" color="white"> </hr>
+        <form id="data.info" class="container" style="display:grid; margin-bottom: -3%;">
+            <div></div>
+        </form>
+        
+        <form id="data.actionlist" class="container" style="display:grid">
+            <div></div>
+        </form>
+        <form class="container flex-container" id="actionlist">
+            <div class="action-list" >
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+            </div>
+        <div class="vl" style="margin-inline:10px;border-left: 1px solid rgb(180, 180, 180);"></div>
+        <div class="action-list" >
+            <div class="action-item">Comment</div>
+            <div class="action-item">Comment</div>
+            <div class="action-item">Comment</div>
+            <div class="action-item">Comment</div>
+            <div class="action-item">Comment</div>
+            <div class="action-item">Comment</div>
+        </div>
+    </form>
+-->
+    
+    <form id="invalid" class="container error" style="padding:1%; display:none; opacity:0; visibility: hidden;">
+       <p>Invalid JSON. Please enter valid rawdata.</p>
+       <code style="opacity: 0.7;"></code>
+    </form>
+    
+    
+    
+    
+</body>
+<img src="./assets/egg_gear.png" class="no-select" style="opacity:0.5 ;filter: grayscale(100%) ;width:20%; position: fixed; bottom: 0; right: 0; margin: -9%;">
+<div class="no-select" style="position:fixed; bottom:0; margin:20px; margin-top:20%; color:rgba(255, 255, 255, 0.445)"><center>Made by tcmine | v0.1</center></div>
+<script src="./src/dbm.js"></script>
