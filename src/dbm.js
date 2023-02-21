@@ -68,7 +68,7 @@ function loadData(val) {
     document.body.appendChild(joe)
     rd_actionlist = joe
     
-    if (scroll) setTimeout(()=>{document.activeElement.blur(); document.getElementById("holder").scrollIntoView({ behavior: 'smooth', block: 'center'})},50)
+    if (scroll) setTimeout(()=>{document.activeElement.blur(); document.getElementById("holder").scrollIntoView({ behavior: 'smooth', block: 'start'})},50)
     scroll = false
 }
 
