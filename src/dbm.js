@@ -1,3 +1,6 @@
+var rd_actionlist;
+var rd_info;
+var scroll = true;
 var RDInput = document.getElementById("rawdata-input")
 
 if (RDInput.focus) {
@@ -19,7 +22,10 @@ function joe() {
     clear()
     var val = ""
     //console.log(RDInput.value);
-    if (RDInput.value === '') return document.getElementById("invalid").style.animation="hideInvalid 0.3s linear forwards";
+    if (RDInput.value === '') {
+        scroll = true;
+        return document.getElementById("invalid").style.animation="hideInvalid 0.3s linear forwards";
+    }
     if (isJsonString(RDInput.value)) {
         //document.getElementById("invalid").style.display = "none";
         document.getElementById("invalid").style.animation="hideInvalid 0.3s linear forwards";
@@ -34,8 +40,6 @@ function joe() {
     //console.log(val)
 }
 
-var rd_actionlist;
-var rd_info;
 
 function loadData(val) {
 
@@ -48,7 +52,7 @@ function loadData(val) {
     let container = document.createElement("div")
     container.className = "action-list"
     joe.className = "container"
-    joe.id = "actionlist"
+    joe.id = "holder"
     //console.log(data.actions)
     var actions = data.actions
     joe.appendChild(container);
@@ -63,7 +67,9 @@ function loadData(val) {
     
     document.body.appendChild(joe)
     rd_actionlist = joe
-    joe.scrollIntoView({ behavior: 'smooth', block: 'center'});
+    document.activeElement.blur()
+    if (scroll) setTimeout(()=>{document.getElementById("holder").scrollIntoView({ behavior: 'smooth', block: 'center'})},50)
+    scroll = false
 }
 
 function clear() {
