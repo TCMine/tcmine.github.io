@@ -1,0 +1,32 @@
+{
+    "command": {
+        "_id": {
+            "label": "ID"
+        },
+        "permissions": {
+            "label": "Required Permissions"
+        },
+        "permissions2": {
+            "label": "Secondary Required Permissions"
+        },
+        "restriction": {
+            "label": "Command Restriction",
+            "values": ["Server only"]
+        }
+    },
+    "event": {
+        "_id": {
+            "label": "ID"
+        },
+        "event-type": {
+            "label": "Event Trigger",
+            "values": []
+        },
+        "temp": {
+            "label": "Temp Variable Name"
+        },
+        "temp2": {
+            "label": "Second Temp Variable Name"
+        }
+    }
+}
