@@ -170,7 +170,7 @@ function dataInfoSetup(dat, jo) {
     cont.className = "container"
 
     //let joe = document.getElementById("holder")
-    document.appendChild(cont)
+    document.body.appendChild(cont)
 
 }
 
