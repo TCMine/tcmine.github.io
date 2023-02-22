@@ -61,7 +61,7 @@ function loadData(val) {
     //console.log(data.actions)
     var actions = data.actions ?? [{name:"?"}]
 
-    dataInfoSetup(data)
+    dataInfoSetup(data, joe)
     joe.appendChild(container);
     
     actions.forEach((item, index) => {
@@ -157,7 +157,7 @@ function clear(num=0) {
     }
 }
 
-function dataInfoSetup(dat) {
+function dataInfoSetup(dat, jo) {
 
     var type = "command"
 
@@ -169,8 +169,8 @@ function dataInfoSetup(dat) {
     cont.id = "datainfo"
     cont.className = "container"
 
-    let joe = document.getElementById("holder")
-    joe.appendChild(cont)
+    //let joe = document.getElementById("holder")
+    jo.appendChild(cont)
 
 }
 
