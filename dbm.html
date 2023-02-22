@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <script src="src/jquery-3.6.3.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -34,14 +35,10 @@
     
     <!--
         <hr width="50%" style="margin-top: 3%; margin-bottom: -2%; opacity: 0.2;" color="white"> </hr>
-        <form id="data.info" class="container" style="display:grid; margin-bottom: -3%;">
+        <form id="actioninfo" class="container" style="display:grid; margin-bottom: -3%;">
             <div></div>
         </form>
-        
-        <form id="data.actionlist" class="container" style="display:grid">
-            <div></div>
-        </form>
-        <form class="container flex-container" id="actionlist">
+        <form class="container flex-container" id="action-menu">
             <div class="action-list" >
                 <div class="action-item">Comment</div>
                 <div class="action-item">Comment</div>
@@ -63,27 +60,49 @@
                 <div class="action-item">Comment</div>
                 <div class="action-item">Comment</div>
                 <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                <div class="action-item">Comment</div>
+                
+                
+                
             </div>
-        <div class="vl" style="margin-inline:10px;border-left: 1px solid rgb(180, 180, 180);"></div>
-        <div class="action-list" >
-            <div class="action-item">Comment</div>
-            <div class="action-item">Comment</div>
-            <div class="action-item">Comment</div>
-            <div class="action-item">Comment</div>
-            <div class="action-item">Comment</div>
-            <div class="action-item">Comment</div>
-        </div>
-    </form>
--->
-    
-    <form id="invalid" class="container error" style="padding:1%; display:none; opacity:0; visibility: hidden;">
-       <p>Invalid JSON. Please enter valid rawdata.</p>
-       <code style="opacity: 0.7;"></code>
-    </form>
-    
-    
-    
-    
+            <div class="vl" style="margin-inline:10px;border-left: 1px solid rgb(180, 180, 180);"></div>
+            <div class="action-info fixed" id="jo">
+                <p class="action-info-title">Comment</p>
+            </div>
+            <div class="action-info" id="jo2" >
+            </div>
+        </form>
+    -->
+        
+        <form id="invalid" class="container error" style="padding:1%; display:none; opacity:0; visibility: hidden;">
+            <p>Invalid JSON. Please enter valid rawdata.</p>
+            <code style="opacity: 0.7;"></code>
+        </form>
+        
+        
+        
+        
 </body>
 <img src="./assets/egg_gear.png" class="no-select" style="opacity:0.5 ;filter: grayscale(100%) ;width:20%; position: fixed; bottom: 0; right: 0; margin: -9%;">
 <div class="no-select" style="position:fixed; bottom:0; margin:20px; margin-top:20%; color:rgba(255, 255, 255, 0.445)"><center>Made by tcmine | v0.1</center></div>

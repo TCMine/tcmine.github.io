@@ -3,6 +3,10 @@ var rd_info;
 var scroll = true;
 var RDInput = document.getElementById("rawdata-input")
 
+var container;
+var element;
+var element2;
+
 if (RDInput.focus) {
     
 
@@ -43,18 +47,19 @@ function joe() {
 
 function loadData(val) {
 
-    if (rd_actionlist) {
-        rd_actionlist.remove()
-    }
+    clear(0)
 
     let data = JSON.parse(val);
     let joe = document.createElement("form")
     let container = document.createElement("div")
+
+    
+
     container.className = "action-list"
-    joe.className = "container"
+    joe.className = "container flex-container"
     joe.id = "holder"
     //console.log(data.actions)
-    var actions = data.actions
+    var actions = data.actions ?? [{name:"?"}]
     joe.appendChild(container);
     
     actions.forEach((item, index) => {
@@ -67,18 +72,95 @@ function loadData(val) {
     
     document.body.appendChild(joe)
     rd_actionlist = joe
+    infoSetup(joe)
     
     if (scroll) setTimeout(()=>{document.activeElement.blur(); document.getElementById("holder").scrollIntoView({ behavior: 'smooth', block: 'start'})},50)
     scroll = false
 }
 
-function clear() {
-    try {
-        rd_actionlist.remove()
-    } catch (e) {
+function infoSetup(t) {
+    let info = document.createElement("div")
+    info.className = "action-info"
+    info.id = "jo"
+
+    let infoSpot = document.createElement("div")
+    infoSpot.className = "action-info"
+    infoSpot.id = "jo2"
+    infoSpot.style.display = "none"
+    infoSpot.style.visibility = "hidden"
+
+    let divider = document.createElement("div")
+    divider.className = "divider"
+
+    if (t) {
+        t.appendChild(divider)
+        t.appendChild(info);
+        t.appendChild(infoSpot);
     }
-    try {
-        rd_info.remove()
-    } catch (e) {
+    container = $(".flex-container");
+    element = $("#jo");
+    element2 = document.getElementById("jo2")
+    var containerTop = container.offset().top;
+    var containerBottom = containerTop + container.outerHeight() - element.outerHeight();
+
+    $(window).scroll(function() {
+        
+      
+      var windowTop = $(window).scrollTop();
+      if (windowTop >= containerTop && windowTop <= containerBottom) {
+        element.addClass("fixed");
+        element2.style.display = "grid";
+        element.css("top", "-8.1%");
+      } else {
+        element.removeClass("fixed");
+        element2.style.display = "none";
+        if (windowTop < containerTop) {
+          element.css("top", "0");
+        } else {
+          element.css("top", containerBottom - containerTop);
+        }
+      }
+    });
+}
+
+function clear(num=0) {
+    if (num === 0) {
+        if (rd_actionlist) {
+            rd_actionlist.remove()
+            rd_actionlist == null
+        }
+        if (rd_info) {
+            rd_info.remove()
+            rd_info == null
+        }
+    }
+    if (num === 1) {
+        try {
+            rd_actionlist.remove()
+            rd_actionlist == null
+            return true
+        } catch (e) {
+            return false
+        }
+    }
+    if (num === 2) {
+        try {
+            rd_info.remove()
+            rd_info == null
+            return true
+        } catch (e) {
+            return false
+        }
     }
 }
+
+
+// $(document).ready(function() {
+//     var container = $(".flex-container");
+//     var element = $("#jo");
+//     var element2 = document.getElementById("jo2")
+  
+//     var containerTop = container.offset().top;
+//     var containerBottom = containerTop + container.outerHeight() - element.outerHeight();
+  
+// });
