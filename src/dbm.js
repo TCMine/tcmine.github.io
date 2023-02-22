@@ -60,6 +60,8 @@ function loadData(val) {
     joe.id = "holder"
     //console.log(data.actions)
     var actions = data.actions ?? [{name:"?"}]
+
+    dataInfoSetup(data)
     joe.appendChild(container);
     
     actions.forEach((item, index) => {
@@ -73,6 +75,7 @@ function loadData(val) {
     document.body.appendChild(joe)
     rd_actionlist = joe
     infoSetup(joe)
+
     
     if (scroll) setTimeout(()=>{document.activeElement.blur(); document.getElementById("holder").scrollIntoView({ behavior: 'smooth', block: 'start'})},50)
     scroll = false
@@ -154,6 +157,20 @@ function clear(num=0) {
     }
 }
 
+function dataInfoSetup(dat) {
+
+    var type = "command"
+
+    if (!dat) return false
+
+    if (dat.event-type && dat.temp) type = "event"
+
+    let cont = document.createElement("div")
+    cont.id = "datainfo"
+    cont.className = "container"
+    
+
+}
 
 // $(document).ready(function() {
 //     var container = $(".flex-container");
