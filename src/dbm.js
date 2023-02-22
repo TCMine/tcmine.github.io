@@ -168,7 +168,9 @@ function dataInfoSetup(dat) {
     let cont = document.createElement("div")
     cont.id = "datainfo"
     cont.className = "container"
-    
+
+    let joe = document.getElementById("holder")
+    joe.appendChild(cont)
 
 }
 
