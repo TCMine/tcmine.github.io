@@ -65,7 +65,7 @@ function loadData(val) {
     joe.appendChild(container);
     
     actions.forEach((item, index) => {
-        console.log(item.name)
+        //console.log(item.name)
         const button = document.createElement("div");
         button.innerHTML = `<b>#${index+1}</b> ${item.name}`; // Use the name property of each object as the button text
         button.className = "action-item"; // Use the name property of each object as the button text
@@ -114,7 +114,8 @@ function infoSetup(t) {
         element.addClass("fixed");
         element2.style.display = "grid";
         element.css("top", "-8.1%");
-      } else {
+        //element.css("width", "50%");
+    } else {
         element.removeClass("fixed");
         element2.style.display = "none";
         if (windowTop < containerTop) {
@@ -171,6 +172,8 @@ function dataInfoSetup(dat, jo) {
 
     //let joe = document.getElementById("holder")
     document.body.appendChild(cont)
+
+
 
     console.log(type)
 
