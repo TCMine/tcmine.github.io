@@ -167,10 +167,12 @@ function dataInfoSetup(dat, jo) {
 
     let cont = document.createElement("div")
     cont.id = "datainfo"
-    cont.className = "container"
+    cont.className = "dbm-info-container"
 
     //let joe = document.getElementById("holder")
     document.body.appendChild(cont)
+
+    console.log(type)
 
 }
 
