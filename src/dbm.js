@@ -113,7 +113,7 @@ function infoSetup(t) {
       if (windowTop >= containerTop && windowTop <= containerBottom) {
         element.addClass("fixed");
         element2.style.display = "grid";
-        element.css("top", "3px");
+        element.css("top", "2px");
         //element.css("width", "50%");
     } else {
         element.removeClass("fixed");
