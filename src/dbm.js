@@ -1,16 +1,17 @@
+const DBMInfo = info
+
+const urlParams = new URLSearchParams(queryString);
+const data = urlParams.get('data')
+console.log(data);
+
 var rd_actionlist;
 var rd_info;
 var scroll = true;
-var RDInput = document.getElementById("rawdata-input")
+var RDInput = document.getElementById("rawdata-input");
 
 var container;
 var element;
 var element2;
-
-if (RDInput.focus) {
-    
-
-}
 
 function isJsonString(str) {
     try {
@@ -20,6 +21,8 @@ function isJsonString(str) {
     }
     return true;
 }
+
+RDInput.focus();
 
 function joe() {
     document.getElementById("invalid").style.display="none";
@@ -33,11 +36,30 @@ function joe() {
     if (isJsonString(RDInput.value)) {
         //document.getElementById("invalid").style.display = "none";
         document.getElementById("invalid").style.animation="hideInvalid 0.3s linear forwards";
-        val = RDInput.value
+        val = RDInput.value;
+
+        //check if object
+        if (typeof JSON.parse(val) != "object" || Array.isArray(JSON.parse(val))) {
+            document.getElementById("invalidText").innerHTML = info.messages.errType
+            document.getElementById("invalid").style.display="grid";
+            document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
+            return
+        }
+
+
+        //check if rd
+        if (JSON.parse(val).actions === undefined) {
+            document.getElementById("invalidText").innerHTML = info.messages.errRD
+            document.getElementById("invalid").style.display="grid";
+            document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
+            return
+        }
 
         loadData(val)
+        dataInfoSetup(val)
 
     } else {
+        document.getElementById("invalidText").innerHTML = info.messages.errJSON
         document.getElementById("invalid").style.display="grid";
         document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
     }
@@ -50,17 +72,24 @@ function loadData(val) {
     clear(0)
 
     let data = JSON.parse(val);
-    let joe = document.createElement("form")
-    let container = document.createElement("div")
-
     
+    let dbmcont = document.createElement("div")
+    dbmcont.id = "datainfo"
+    dbmcont.className = "container flex-container"
+    document.body.appendChild(dbmcont)
+    rd_info = dbmcont
 
+    let container = document.createElement("div")
+    container.id = "action-list"
     container.className = "action-list"
+    
+    let joe = document.createElement("form")
     joe.className = "container flex-container"
     joe.id = "holder"
+    
     //console.log(data.actions)
     var actions = data.actions ?? [{name:"?"}]
-
+    
     dataInfoSetup(data, joe)
     joe.appendChild(container);
     
@@ -77,7 +106,7 @@ function loadData(val) {
     infoSetup(joe)
 
     
-    if (scroll) setTimeout(()=>{document.activeElement.blur(); document.getElementById("holder").scrollIntoView({ behavior: 'smooth', block: 'start'})},50)
+    if (scroll) setTimeout(()=>{document.activeElement.blur(); document.getElementById("datainfo").scrollIntoView({ behavior: 'smooth', block: 'start'})},50)
     scroll = false
 }
 
@@ -86,44 +115,37 @@ function infoSetup(t) {
     info.className = "action-info"
     info.id = "jo"
 
-    let infoSpot = document.createElement("div")
-    infoSpot.className = "action-info"
-    infoSpot.id = "jo2"
-    infoSpot.style.display = "none"
-    infoSpot.style.visibility = "hidden"
-
     let divider = document.createElement("div")
     divider.className = "divider"
+    
+    let title = document.createElement("p")
+    title.className = "action-info-title"
+    title.innerHTML = "No action selected."
+
+
+    //let joe = document.getElementById("holder")
 
     if (t) {
+
         t.appendChild(divider)
         t.appendChild(info);
-        t.appendChild(infoSpot);
+        info.appendChild(title)
     }
-    container = $(".flex-container");
-    element = $("#jo");
-    element2 = document.getElementById("jo2")
-    var containerTop = container.offset().top;
-    var containerBottom = containerTop + container.outerHeight() - element.outerHeight();
 
-    $(window).scroll(function() {
-        
-      
-      var windowTop = $(window).scrollTop();
-      if (windowTop >= containerTop && windowTop <= containerBottom) {
-        element.addClass("fixed");
-        element2.style.display = "grid";
-        element.css("top", "2px");
-        //element.css("width", "50%");
+    //scroll with window
+    const stickyElement = document.getElementById('jo');
+    const ac = document.getElementById('action-list');
+    const cont = document.getElementById('holder');
+    
+    window.addEventListener('scroll', () => {
+    let rect = ac.getBoundingClientRect();
+    const distanceFromTop = cont.offsetTop -  window.pageYOffset || document.documentElement.scrollTop;
+    //console.log(parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top')), (distanceFromTop-distanceFromTop*2)+window.getComputedStyle(cont).getPropertyValue('padding-top'))
+    if (rect.top < 0) {
+        stickyElement.style.marginTop = `${(distanceFromTop-distanceFromTop*2)-parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top'))+10}px`;
     } else {
-        element.removeClass("fixed");
-        element2.style.display = "none";
-        if (windowTop < containerTop) {
-          element.css("top", "0");
-        } else {
-          element.css("top", containerBottom - containerTop);
-        }
-      }
+        stickyElement.style.marginTop = 0
+    }
     });
 }
 
@@ -166,14 +188,7 @@ function dataInfoSetup(dat, jo) {
 
     if (dat.event-type && dat.temp) type = "event"
 
-    let cont = document.createElement("div")
-    cont.id = "datainfo"
-    cont.className = "dbm-info-container"
-
-    //let joe = document.getElementById("holder")
-    document.body.appendChild(cont)
-
-
+    
 
     console.log(type)
 

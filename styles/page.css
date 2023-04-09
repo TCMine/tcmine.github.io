@@ -90,17 +90,6 @@ form {
   border: 3px solid #f1f1f1;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-content: center;
-  align-items: flex-start;
-  overflow: hidden;
-  min-height: 30pc;
-}
-
 .action-list {
   display: flex;
   flex-direction: column;
@@ -109,7 +98,6 @@ form {
   align-content: flex-start;
   align-items: stretch;
   width: 50%;
-  margin-top: 5%;
   border-width: 1px;
   border-color: #E4E4E4;
   border-style: solid;
@@ -139,21 +127,17 @@ form {
   align-content: flex-start;
   align-items: stretch;
   width: 50%;
-  margin-top: 5%;
   border-width: 1px;
   border-color: hsl(0, 0%, 27%);
   border-style: solid;
   border-radius: 8px;
   min-height: 40pc;
   overflow: hidden;
+  height: 50px; /* adjust to desired height */
+  flex: 0 0 auto;
+  background-color: #161616;
 }
 
-.fixed {
-  position: fixed;
-  width: 25%;
-  
-  /* other styles as needed */
-}
 .spot {
   display: none;
   visibility: hidden;
@@ -174,8 +158,8 @@ form {
 .container {
   margin-inline: 20%;
   margin-top: 5%;
-  padding-bottom: 4%;
-  padding-inline: 4%;
+  padding: 4%;
+  padding-top: 2%;
   border-radius: 15px;
   border-color: #2c2c2c;
   background-color: #181818;
@@ -189,6 +173,16 @@ form {
   margin-top: 5%;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  padding-bottom: 2%;
+}
 
 .sardine-button {
     font-family: 'Open Sans', sans-serif;
