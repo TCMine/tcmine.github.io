@@ -1,17 +1,19 @@
 const DBMInfo = info
 
-const urlParams = new URLSearchParams(queryString);
-const data = urlParams.get('data')
-console.log(data);
 
 var rd_actionlist;
 var rd_info;
 var scroll = true;
 var RDInput = document.getElementById("rawdata-input");
-
 var container;
 var element;
 var element2;
+
+// const queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
+// const data = urlParams.get('data')
+// console.log(data);
+// RDInput.value = data
 
 function isJsonString(str) {
     try {
@@ -96,7 +98,7 @@ function loadData(val) {
     actions.forEach((item, index) => {
         //console.log(item.name)
         const button = document.createElement("div");
-        button.innerHTML = `<b>#${index+1}</b> ${item.name}`; // Use the name property of each object as the button text
+        button.innerHTML = `<b class="action-item-n">#${index+1}</b><span style="margin-left:13%;display:inline-block">${item.name}</span>`; // Use the name property of each object as the button text
         button.className = "action-item"; // Use the name property of each object as the button text
         container.appendChild(button); // Add the button to the buttonListDiv
     });
@@ -139,10 +141,12 @@ function infoSetup(t) {
     
     window.addEventListener('scroll', () => {
     let rect = ac.getBoundingClientRect();
-    const distanceFromTop = cont.offsetTop -  window.pageYOffset || document.documentElement.scrollTop;
+    const distanceFromTop = cont.offsetTop - window.pageYOffset || document.documentElement.scrollTop;
     //console.log(parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top')), (distanceFromTop-distanceFromTop*2)+window.getComputedStyle(cont).getPropertyValue('padding-top'))
     if (rect.top < 0) {
-        stickyElement.style.marginTop = `${(distanceFromTop-distanceFromTop*2)-parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top'))+10}px`;
+        if (rect.bottom >= window.innerHeight - 5) {
+            stickyElement.style.marginTop = `${(distanceFromTop-distanceFromTop*2)-parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top'))+10}px`;
+        }
     } else {
         stickyElement.style.marginTop = 0
     }

@@ -80,6 +80,7 @@ div {
 
 
 html, body {
+  padding-bottom: 1%;
     color: rgb(228, 228, 228);
     background-color: rgb(43, 43, 43);
     font-family: 'Open Sans', sans-serif;
@@ -113,10 +114,22 @@ form {
   background: linear-gradient(0deg, rgb(58, 58, 58) 0%, rgb(87, 87, 87) 99%);
   text-align: left;
   padding: 0.8%;
-  padding-left: 4%;
+  padding-left: 5%;
   font: 15px 'Open Sans', sans-serif;
   
   border-bottom:solid 1px;
+}
+
+.action-item-n {
+  position: absolute;
+  text-align: left;
+  display: inline-block
+}
+.action-item-t {
+  position: absolute;
+  text-align: left;
+  left:2%;
+  width: 1px;
 }
 
 .action-info {
@@ -336,7 +349,8 @@ form {
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 9px;
+    padding: 45px;
   }
   
   /* Track */
