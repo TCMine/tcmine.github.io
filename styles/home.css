@@ -133,14 +133,10 @@ form {
 
 .social-icon {
   opacity: 70%;
-  transition: opacity 0.4 ease;
+  transition: opacity 0.4s ease;
 }
 
 .social-icon:hover {
-  opacity: 70%;
-}
-
-.social-icon:hover:after {
   opacity: 100%;
 }
 

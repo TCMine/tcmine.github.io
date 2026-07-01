@@ -42,18 +42,14 @@ function joe() {
 
         //check if object
         if (typeof JSON.parse(val) != "object" || Array.isArray(JSON.parse(val))) {
-            document.getElementById("invalidText").innerHTML = info.messages.errType
-            document.getElementById("invalid").style.display="grid";
-            document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
+            showError(info.messages.errType)
             return
         }
 
 
         //check if rd
         if (JSON.parse(val).actions === undefined) {
-            document.getElementById("invalidText").innerHTML = info.messages.errRD
-            document.getElementById("invalid").style.display="grid";
-            document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
+            showError(info.messages.errRD)
             return
         }
 
@@ -61,17 +57,20 @@ function joe() {
         dataInfoSetup(val)
 
     } else {
-        document.getElementById("invalidText").innerHTML = info.messages.errJSON
-        document.getElementById("invalid").style.display="grid";
-        document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
+        showError(info.messages.errJSON)
     }
     //console.log(val)
 }
 
+function showError(message) {
+    document.getElementById("invalidText").innerHTML = message
+    document.getElementById("invalid").style.display="grid";
+    document.getElementById("invalid").style.animation="showInvalid 0.3s linear forwards";
+}
 
 function loadData(val) {
 
-    clear(0)
+    clear()
 
     let data = JSON.parse(val);
     
@@ -128,7 +127,6 @@ function infoSetup(t) {
     //let joe = document.getElementById("holder")
 
     if (t) {
-
         t.appendChild(divider)
         t.appendChild(info);
         info.appendChild(title)
@@ -140,16 +138,16 @@ function infoSetup(t) {
     const cont = document.getElementById('holder');
     
     window.addEventListener('scroll', () => {
-    let rect = ac.getBoundingClientRect();
-    const distanceFromTop = cont.offsetTop - window.pageYOffset || document.documentElement.scrollTop;
-    //console.log(parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top')), (distanceFromTop-distanceFromTop*2)+window.getComputedStyle(cont).getPropertyValue('padding-top'))
-    if (rect.top < 0) {
-        if (rect.bottom >= window.innerHeight - 5) {
-            stickyElement.style.marginTop = `${(distanceFromTop-distanceFromTop*2)-parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top'))+10}px`;
-        }
-    } else {
-        stickyElement.style.marginTop = 0
-    }
+		let rect = ac.getBoundingClientRect();
+		const distanceFromTop = cont.offsetTop - window.pageYOffset || document.documentElement.scrollTop;
+		//console.log(parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top')), (distanceFromTop-distanceFromTop*2)+window.getComputedStyle(cont).getPropertyValue('padding-top'))
+		if (rect.top < 0) {
+			if (rect.bottom >= window.innerHeight + 5) {
+				stickyElement.style.marginTop = `${(distanceFromTop-distanceFromTop*2)-parseInt(window.getComputedStyle(cont).getPropertyValue('padding-top'))+10}px`;
+			}
+		} else {
+			stickyElement.style.marginTop = 0
+		}
     });
 }
 

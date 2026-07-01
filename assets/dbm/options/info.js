@@ -1,7 +1,7 @@
 info = {
     "messages": {
-        "errJSON": "Invalid JSON. Please enter valid Raw Data.",
-        "errType": "The value provided is not an object. Please enter valid Raw Data.",
+        "errJSON": "Invalid input. Please enter valid Raw Data.",
+        "errType": "The value provided is not a JSON object.",
         "errRD": "The JSON provided doesn't seem to be valid DBM Raw Data."
     },
     "command": {
